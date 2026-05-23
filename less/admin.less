@@ -1,0 +1,478 @@
+.CustomHomepageSettingsPage {
+
+    /* --- SEKMELİ (TAB) YAPI TASARIMI --- */
+    .Framio-Tabs-Container {
+        margin-top: 20px;
+    }
+
+    .Framio-Tab-Buttons {
+        display: flex;
+        gap: 10px;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 15px;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+
+        .Button {
+            background: transparent;
+            border: none;
+            box-shadow: none;
+            color: var(--muted-color);
+            font-weight: 600;
+            padding: 10px 15px;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+
+            &:hover {
+                background: var(--control-bg-hover);
+                color: var(--text-color);
+            }
+
+            &.Button--primary {
+                background: var(--primary-color);
+                color: #fff;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            }
+        }
+    }
+
+    .Framio-Tab-Content {
+        background: var(--control-bg);
+        padding: 25px;
+        border-radius: 8px;
+        border: 1px solid var(--border-color);
+        min-height: 350px; 
+    }
+
+    .Framio-Save-Wrapper {
+        margin-top: 30px;
+        padding: 20px;
+        background: var(--control-bg);
+        border-radius: 8px;
+        border: 1px solid var(--border-color);
+        text-align: right; 
+    }
+
+    /* --- KATEGORİ KAPAK GÖRSELLERİ YÖNETİMİ --- */
+    .Framio-TagCovers-Grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 15px;
+
+        .Framio-TagCover-Item {
+            display: flex;
+            flex-direction: column;
+            background: var(--body-bg);
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+
+            .TagCover-Label {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                font-weight: bold;
+                font-size: 14px;
+                margin-bottom: 10px;
+                color: var(--heading-color);
+
+                .TagCover-ColorBox {
+                    width: 24px;
+                    height: 24px;
+                    border-radius: 4px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: white;
+                    font-size: 12px;
+                }
+            }
+
+            .TagCover-InputArea {
+                display: flex;
+                gap: 10px;
+                align-items: center;
+
+                input.FormControl {
+                    flex: 1;
+                }
+
+                .Framio-MiniPreview {
+                    width: 50px;
+                    height: 34px;
+                    background-size: cover;
+                    background-position: center;
+                    border-radius: 4px;
+                    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+                    flex-shrink: 0;
+                    border: 1px solid var(--border-color);
+                    background-color: var(--control-bg);
+                }
+            }
+        }
+    }
+
+
+    /* --- MİNİMAL SLIDER KONTROLLERİ VE GÖRSEL SEÇİCİ --- */
+    .Framio-Slider-Layout {
+        display: flex;
+        gap: 30px;
+        align-items: flex-start;
+        
+        .Framio-Slider-Controls {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .Framio-Slider-PreviewBox {
+            width: 450px;
+            flex-shrink: 0;
+            background: var(--body-bg);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px dashed var(--border-color);
+        }
+    }
+
+    @media (max-width: 900px) {
+        .Framio-Slider-Layout {
+            flex-direction: column;
+            .Framio-Slider-PreviewBox {
+                width: 100%;
+            }
+        }
+    }
+
+    /* Minimal Slider Listesi */
+    .Slider-Items-Compact {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        
+        .Slider-Item.minimal {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--body-bg);
+            padding: 8px 12px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            transition: background 0.2s;
+
+            .Drag-Handle {
+                color: var(--muted-color);
+                cursor: grab;
+                font-size: 14px;
+            }
+
+            .Slider-Item-Thumb {
+                width: 45px;
+                height: 30px;
+                background-size: cover;
+                background-position: center;
+                border-radius: 4px;
+                flex-shrink: 0;
+                box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+            }
+
+            .FormControl.input-sm {
+                padding: 4px 8px;
+                height: 30px;
+                font-size: 12px;
+            }
+        }
+    }
+
+    /* --- SAYFALAMALI FOTOĞRAF SEÇİCİ KUTUSU --- */
+    .ImagePicker-Container {
+        background: var(--body-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+        padding: 15px;
+    }
+
+    .ImagePicker-Grid {
+        display: grid;
+        grid-template-columns: repeat(10, 1fr); 
+        gap: 8px; 
+        
+        .ImagePicker-Item {
+            position: relative;
+            aspect-ratio: 3/2;
+            border-radius: 4px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.2s;
+            background: var(--control-bg); 
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+            }
+
+            .ImagePicker-Overlay {
+                position: absolute;
+                inset: 0;
+                background: rgba(0,0,0,0.7);
+                color: white;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                opacity: 0;
+                transition: opacity 0.2s;
+                font-size: 14px;
+            }
+
+            &:hover {
+                transform: scale(1.15);
+                z-index: 2;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+                border-color: var(--primary-color);
+                border-radius: 2px;
+                
+                .ImagePicker-Overlay {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    .ImagePicker-Pagination {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 15px;
+        padding-top: 10px;
+        border-top: 1px solid var(--border-color);
+
+        .Page-Info {
+            font-size: 12px;
+            font-weight: bold;
+            color: var(--muted-color);
+        }
+
+        .Button {
+            padding: 4px 10px;
+            min-height: 28px;
+        }
+    }
+
+
+    /* --- KAPAK GÖRSELİ YÖNETİMİ --- */
+    .Framio-PostGrid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 15px;
+        margin-top: 15px;
+        max-height: 500px;
+        overflow-y: auto;
+        padding: 10px;
+        background: var(--body-bg); 
+        border-radius: 4px;
+        border: 1px solid var(--border-color);
+    }
+    .Framio-PostCard {
+        background: var(--control-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+        overflow: hidden;
+        cursor: pointer;
+        transition: transform 0.2s, box-shadow 0.2s;
+        display: flex;
+        flex-direction: column;
+    }
+    .Framio-PostCard:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        border-color: var(--primary-color);
+    }
+    .Framio-PostCard-Thumb {
+        height: 140px;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        border-bottom: 1px solid var(--border-color);
+    }
+    .Framio-PostCard-Badge {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        background: rgba(0,0,0,0.75);
+        color: white;
+        padding: 3px 8px;
+        border-radius: 2px;
+        font-size: 11px;
+        font-weight: bold;
+    }
+    .Framio-PostCard-Info { padding: 12px; }
+    .Framio-PostCard-Title {
+        font-weight: bold;
+        font-size: 13px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-bottom: 6px;
+    }
+    .Framio-PostCard-User { font-size: 12px; color: var(--muted-color); }
+    .Framio-DetailView {
+        background: var(--body-bg);
+        padding: 20px;
+        border-radius: 4px;
+        border: 1px solid var(--border-color);
+        margin-top: 15px;
+    }
+    .Framio-DetailHeader {
+        display: flex;
+        align-items: center; gap: 15px; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid var(--border-color);
+    }
+    .Framio-ImageGrid {
+        display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: 12px;
+    }
+    .Framio-ImageItem {
+        position: relative; aspect-ratio: 16/10;
+        cursor: pointer; border-radius: 4px; overflow: hidden; border: 3px solid transparent; transition: all 0.2s;
+    }
+    .Framio-ImageItem.selected { border-color: var(--primary-color); transform: scale(0.96); }
+    .Framio-ImageItem img { width: 100%;
+        height: 100%; object-fit: cover; display: block; }
+    .Framio-ImageOverlay {
+        position: absolute;
+        bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.7); color: white; font-size: 11px; font-weight: bold; text-align: center; padding: 6px; opacity: 0;
+        transition: opacity 0.2s;
+    }
+    .Framio-ImageItem:hover .Framio-ImageOverlay { opacity: 1; }
+    .Framio-ImageCrown {
+        position: absolute; top: 8px; left: 8px;
+        background: #f1c40f; color: #000; border-radius: 50%; width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; font-size: 13px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+
+    .Slider-Item.dragging-item {
+        opacity: 0.4;
+        background: var(--control-bg-hover) !important;
+        border: 1px dashed var(--primary-color) !important;
+    }
+}
+
+/* --- YENİ EŞİTLENMİŞ ADMİN GRID SLIDER ÖN İZLEME STİLLERİ --- */
+.Framio-Admin-SliderPreview {
+    position: relative;
+    overflow: hidden;
+    background: transparent; 
+    border-radius: 0 !important;
+    margin: 0 auto;
+    max-width: 100%;
+    border: 1px solid var(--border-color);
+    padding: 0; 
+    
+    .Preview-Badge {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background: rgba(0,0,0,0.6);
+        padding: 4px 8px;
+        border-radius: 4px;
+        color: #fff;
+        font-size: 10px;
+        font-weight: bold;
+        z-index: 20;
+    }
+
+    .Framio-HeroSlider-Container {
+        margin: 0 !important; 
+        border-radius: 0 !important; 
+        width: 100% !important;
+        height: auto !important;
+        box-shadow: none;
+    }
+
+    .Framio-HeroSlider-Viewport {
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+    }
+
+    .Framio-HeroSlider-Track {
+        display: flex;
+        width: 100%;
+        height: auto;
+        align-items: flex-start;
+        transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .Framio-HeroSlider-Page {
+        flex: 0 0 100%;
+        width: 100%;
+        height: auto;
+        display: grid;
+        background: #000;
+        gap: 1px; // Önizlemede boşluk daha ince olsun
+        align-content: start;
+        grid-template-columns: repeat(4, 1fr); 
+    }
+
+    .Framio-Grid-Item {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 3 / 2; /* Önizlemede de 3:2 oranı korunuyor */
+        background-size: cover; 
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: #000; 
+    }
+
+    .Framio-Collage-Overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.6);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 15px;
+        pointer-events: none; 
+        z-index: 5;
+        
+        .Welcome-Title {
+            color: #fff;
+            font-size: 20px;
+            font-weight: 800;
+            margin-bottom: 5px;
+        }
+        
+        .Welcome-Message {
+            color: #eee;
+            font-size: 12px;
+        }
+    }
+    
+    .Framio-HeroSlider-Dots {
+        position: absolute;
+        bottom: 5px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 4px;
+        z-index: 6;
+
+        .Framio-HeroSlider-Dot {
+            width: 15px; 
+            height: 3px;
+            border-radius: 0; 
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s;
+
+            &.active {
+                background: #fff;
+            }
+        }
+    }
+}

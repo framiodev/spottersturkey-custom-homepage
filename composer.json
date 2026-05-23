@@ -1,0 +1,29 @@
+{
+    "name": "framio/custom-homepage",
+    "description": "Spotters Turkey Özel Ana Sayfa ve Slider Eklentisi",
+    "type": "flarum-extension",
+    "require": {
+        "flarum/core": "^2.0"
+    },
+    "authors": [
+        {
+            "name": "Framio"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Framio\\CustomHomepage\\": "src/"
+        }
+    },
+    "extra": {
+        "flarum-extension": {
+            "title": "Framio Custom Homepage",
+            "category": "feature",
+            "icon": {
+                "name": "fas fa-home",
+                "backgroundColor": "#e74c3c",
+                "color": "#fff"
+            }
+        }
+    }
+}

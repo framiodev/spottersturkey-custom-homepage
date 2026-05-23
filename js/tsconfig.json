@@ -1,0 +1,9 @@
+{
+  "extends": "flarum-tsconfig",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "flarum/*": ["node_modules/flarum/core/js/src/*"]
+    }
+  }
+}
